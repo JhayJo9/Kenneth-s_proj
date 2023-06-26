@@ -35,12 +35,13 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblguessed = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.PA = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(63, 185);
+            this.button1.Location = new System.Drawing.Point(52, 185);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(80, 31);
             this.button1.TabIndex = 0;
@@ -73,12 +74,13 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(195, 22);
             this.textBox1.TabIndex = 3;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblguessed
             // 
             this.lblguessed.AutoSize = true;
             this.lblguessed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblguessed.Location = new System.Drawing.Point(182, 162);
+            this.lblguessed.Location = new System.Drawing.Point(145, 153);
             this.lblguessed.Name = "lblguessed";
             this.lblguessed.Size = new System.Drawing.Size(0, 18);
             this.lblguessed.TabIndex = 4;
@@ -95,6 +97,17 @@
             this.label2.Text = "Enter a number between 1 and 100";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
+            // PA
+            // 
+            this.PA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PA.Location = new System.Drawing.Point(160, 238);
+            this.PA.Name = "PA";
+            this.PA.Size = new System.Drawing.Size(127, 29);
+            this.PA.TabIndex = 6;
+            this.PA.Text = "PlayAgain";
+            this.PA.UseVisualStyleBackColor = true;
+            this.PA.Click += new System.EventHandler(this.PA_Click);
+            // 
             // Guessing_Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -102,12 +115,14 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(461, 313);
+            this.Controls.Add(this.PA);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblguessed);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Guessing_Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Guessing_Game";
@@ -124,5 +139,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblguessed;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button PA;
     }
 }

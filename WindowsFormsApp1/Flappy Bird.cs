@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
         int pipespeed = 8;
         int gravity = 15;
         int score = 0;
+        bool gameOver = false;
         public Flappy_Bird()
         {
             InitializeComponent();
@@ -30,12 +31,14 @@ namespace WindowsFormsApp1
             scoretext.Text = "Score: " + score;
             if(pipebottom.Left < -150)
             {
-                pipebottom.Left = 818;
+                pipebottom.Left = 820;
                 score++;
             }
-            if (pipebottom.Left < -80)
-            {
-                PipeTop.Left = 818;
+            if (PipeTop.Left < -80)
+            {;
+                PipeTop.Left = 820;
+                score++;
+
 
 
             }
@@ -59,8 +62,9 @@ namespace WindowsFormsApp1
         private void endgame()
         {
             timer1.Stop();
-            scoretext.Text += " Game Over !!!";
-            btn_exit.Show();
+            scoretext.Text += " Game Over !!! Press R to Retry";
+           
+            gameOver = true;
         }
 
         private void gamekeyisdown(object sender, KeyEventArgs e)
@@ -69,7 +73,18 @@ namespace WindowsFormsApp1
             {
                 gravity = -15;
             }
-           
+            if (e.KeyCode == Keys.R && gameOver)
+            {
+                RestartGame();
+            }
+            if (e.KeyCode == Keys.Q && gameOver)
+            {
+                this.Hide();
+                MessageBox.Show("Do you want to exit? ");
+                Form frm3 = new Main_Menu();
+                frm3.Show();
+            }
+
         }
 
         private void gamekeyisup(object sender, KeyEventArgs e)
@@ -80,16 +95,34 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void btn_exit_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            MessageBox.Show("Do you want to exit? ");
-            Form frm3 = new Main_Menu();
-            frm3.Show();
-        }
+        
 
         private void Flappy_Bird_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void BIRD_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PipeTop_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void RestartGame()
+        {
+            gameOver = false;
+
+            BIRD.Location = new Point(90, 160);
+            PipeTop.Left = 800;
+            pipebottom.Left = 1200;
+
+            score = 0;
+            pipespeed = 8;
+            scoretext.Text = "Score: 0";
+            timer1.Start();
 
         }
     }

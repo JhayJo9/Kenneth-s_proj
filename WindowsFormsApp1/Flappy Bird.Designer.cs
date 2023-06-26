@@ -36,7 +36,6 @@
             this.pipebottom = new System.Windows.Forms.PictureBox();
             this.scoretext = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btn_exit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeTop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BIRD)).BeginInit();
@@ -47,9 +46,9 @@
             // 
             this.ground.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ground.BackgroundImage")));
             this.ground.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ground.Location = new System.Drawing.Point(-2, 521);
+            this.ground.Location = new System.Drawing.Point(-4, 531);
             this.ground.Name = "ground";
-            this.ground.Size = new System.Drawing.Size(809, 145);
+            this.ground.Size = new System.Drawing.Size(805, 145);
             this.ground.TabIndex = 0;
             this.ground.TabStop = false;
             // 
@@ -58,32 +57,34 @@
             this.PipeTop.BackColor = System.Drawing.Color.Transparent;
             this.PipeTop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PipeTop.BackgroundImage")));
             this.PipeTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PipeTop.Location = new System.Drawing.Point(669, -2);
+            this.PipeTop.Location = new System.Drawing.Point(656, -3);
             this.PipeTop.Name = "PipeTop";
             this.PipeTop.Size = new System.Drawing.Size(99, 115);
             this.PipeTop.TabIndex = 1;
             this.PipeTop.TabStop = false;
+            this.PipeTop.Click += new System.EventHandler(this.PipeTop_Click);
             // 
             // BIRD
             // 
             this.BIRD.BackColor = System.Drawing.Color.Transparent;
             this.BIRD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BIRD.Image = ((System.Drawing.Image)(resources.GetObject("BIRD.Image")));
-            this.BIRD.Location = new System.Drawing.Point(135, 171);
+            this.BIRD.Location = new System.Drawing.Point(90, 160);
             this.BIRD.Name = "BIRD";
-            this.BIRD.Size = new System.Drawing.Size(102, 85);
+            this.BIRD.Size = new System.Drawing.Size(62, 51);
             this.BIRD.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.BIRD.TabIndex = 2;
             this.BIRD.TabStop = false;
+            this.BIRD.Click += new System.EventHandler(this.BIRD_Click);
             // 
             // pipebottom
             // 
             this.pipebottom.BackColor = System.Drawing.Color.Transparent;
             this.pipebottom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pipebottom.BackgroundImage")));
             this.pipebottom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pipebottom.Location = new System.Drawing.Point(430, 392);
+            this.pipebottom.Location = new System.Drawing.Point(543, 416);
             this.pipebottom.Name = "pipebottom";
-            this.pipebottom.Size = new System.Drawing.Size(97, 131);
+            this.pipebottom.Size = new System.Drawing.Size(97, 118);
             this.pipebottom.TabIndex = 3;
             this.pipebottom.TabStop = false;
             // 
@@ -104,19 +105,6 @@
             this.timer1.Interval = 20;
             this.timer1.Tick += new System.EventHandler(this.gametimerevent);
             // 
-            // btn_exit
-            // 
-            this.btn_exit.BackColor = System.Drawing.Color.Transparent;
-            this.btn_exit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_exit.BackgroundImage")));
-            this.btn_exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_exit.Location = new System.Drawing.Point(353, 282);
-            this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Size = new System.Drawing.Size(94, 49);
-            this.btn_exit.TabIndex = 5;
-            this.btn_exit.UseVisualStyleBackColor = false;
-            this.btn_exit.Visible = false;
-            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
-            // 
             // Flappy_Bird
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -124,13 +112,14 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 646);
-            this.Controls.Add(this.btn_exit);
+            this.ClientSize = new System.Drawing.Size(798, 646);
             this.Controls.Add(this.scoretext);
             this.Controls.Add(this.pipebottom);
             this.Controls.Add(this.BIRD);
             this.Controls.Add(this.PipeTop);
             this.Controls.Add(this.ground);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Flappy_Bird";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Flappy_Bird";
@@ -154,6 +143,5 @@
         private System.Windows.Forms.PictureBox pipebottom;
         private System.Windows.Forms.Label scoretext;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button btn_exit;
     }
 }

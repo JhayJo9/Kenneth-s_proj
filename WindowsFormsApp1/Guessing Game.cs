@@ -16,14 +16,18 @@ namespace WindowsFormsApp1
         int number = 0;
         int guess = 0;
         int i;
+        bool gameover = false;
         public Guessing_Game()
         {
             InitializeComponent();
             loadQuestion();
+            playagain();  
         }
         private void loadQuestion()
         {
             number = Random.Next(1, 100);
+
+            PA.Visible = false;
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -37,20 +41,23 @@ namespace WindowsFormsApp1
                 i = int.Parse(textBox1.Text);
                 guess += 1;
                 lblguessed.Text = "You guessed " + guess + " times";
+
+                if (i == number)
+                {
+                    MessageBox.Show("You got it right");
+                    PA.Visible = true;
+                }
+                else if (i < number)
+                {
+                    MessageBox.Show("Go higher");
+                }
+                else
+                {
+                    MessageBox.Show("Go lower");
+                }
             }
 
-            if(i == number)
-            {
-                MessageBox.Show("You got it right");
-            }
-            else if(i < number) 
-            {
-                MessageBox.Show("Go higher");
-            }
-            else
-            {
-                MessageBox.Show("Go lower");
-            }
+          
 
         }
 
@@ -66,6 +73,19 @@ namespace WindowsFormsApp1
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void playagain()
+        {
+            loadQuestion();
+            textBox1.Clear();
+            guess = 0; 
+            lblguessed.Text = "You guessed " + guess + " times";
+            gameover = false;
+        }
+        private void PA_Click(object sender, EventArgs e)
+        {
+            playagain();
         }
     }
 }
